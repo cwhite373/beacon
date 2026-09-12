@@ -1,0 +1,54 @@
+Project update logging:
+    add a 'log' command that allows users to log updates.
+
+    ex: `notepad log "Project setup"`
+        will be stored as a log entry with the current timestamp in the file for the current day.
+
+    add a 'view' command that displays all log entries for the current day.
+    add a 'clear' command that removes all log entries for the current day.
+    add a 'search' command that allows users to search for specific keywords in the log entries for the current day.
+    add an 'export' command that saves the log entries for the current day to a specified file format (e.g., .txt, .csv).
+    add a 'filter' command that allows users to filter log entries based on specific criteria (e.g., date range, keywords).
+    add a 'tag' command that allows users to add tags to log entries for easier categorization and retrieval.
+    add an 'edit' command that allows users to modify existing log entries for the current day.
+    add a 'delete' command that allows users to remove specific log entries for the current day.
+    add a 'sort' command that allows users to sort log entries based on specific criteria (e.g., date, keyword, tag).
+
+PKM:
+    add a 'new --template' command that allows users to create a new note based on a predefined template.
+    add a 'scratch' command that allows users to create a temporary note that is not saved to the main note directory.
+    add a 'link' command that allows users to create links between notes for easier navigation and organization.
+    add a 'tag' command that allows users to add tags to notes for easier categorization and retrieval.
+
+Task and System Utilities:
+    add a 'task' command that allows users to create and manage tasks.
+    add a 'reminder' command that allows users to set reminders for tasks or notes.
+    add a 'calendar' command that allows users to view and manage their calendar events.
+    add a 'timer' command that allows users to set timers for specific tasks or activities.
+    add a 'stopwatch' command that allows users to track time spent on specific tasks or activities.
+
+Misc:
+    add a 'weather' command that allows users to view the current weather and forecast for a specified location.
+    add an 'easter-egg' command that shows a random ascii image from a list of them.
+    add a 'stats' command that shows the number of notes, tasks, and logs.
+        subcommands:
+            - 'stats notes' - shows the number of notes.
+            - 'stats tasks' - shows the number of tasks.
+            - 'stats logs' - shows the number of logs.
+            - 'stats ~file_name' shows the word count, amount of logs/tasks/notes, and other statistics for a specific file.
+    add an 'info' command that displays information about the note or task, such as tags, links, creation date, and last modified date.
+
+General:
+    add a 'help' command that displays a list of available commands and their descriptions.
+    add a 'version' command that displays the current version of the application.
+    add a 'config' command that allows users to view and modify application settings.
+    add a 'backup' command that allows users to create backups of their notes, tasks, and logs.
+    add a 'restore' command that allows users to restore notes, tasks, and logs from a backup file.
+    add an 'undo' command that reverts the most recent change.
+    add a 'redo' command that undos the most recent undo.
+
+
+I need to find an efficient way to search through the logs for keywords, links, tags etc.
+I also need an efficient way to keep track of changes so that they can easily be undone.
+
+When running a notepad command, I want it to edit files in the path it was called under.
