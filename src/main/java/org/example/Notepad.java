@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.commands.logCommand;
+import org.example.commands.projectCommand;
 
 import org.example.database.DatabaseManager;
 
@@ -13,7 +14,8 @@ import picocli.CommandLine.Command;
         version = "notepad 1.0.0",
         description = "A simple command-line notepad application.",
         subcommands = {
-                logCommand.class
+                logCommand.class,
+                projectCommand.class
         }
 )
 public class Notepad implements Runnable {

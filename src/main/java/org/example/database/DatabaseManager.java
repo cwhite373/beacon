@@ -56,6 +56,28 @@ public class DatabaseManager {
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 );""";
 
+        String createProjectTable = """
+                CREATE TABLE IF NOT EXISTS projects (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    project_name VARCHAR(50) UNIQUE NOT NULL,
+                    root_path TEXT,
+                    port INTEGER,
+                    env_vars TEXT,
+                    is_active BOOLEAN DEFAULT 0,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                );
+                """;
+        String createSessionsTable = """
+                CREATE TABLE IF NOT EXISTS sessions (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    project_id INTEGER REFERENCES projects(id) ON DELETE CASCADE,
+                    description TEXT NOT NULL,
+                    started_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    ended_at TIMESTAMP,
+                    duration INTEGER
+                );
+                """;
+
         try (Connection conn = getConnection()) {
             Statement stmt = conn.createStatement();
 
@@ -65,6 +87,8 @@ public class DatabaseManager {
             stmt.execute(createTagsTable);
             stmt.execute(createItemTagsTable);
             stmt.execute(createHistoryTable);
+            stmt.execute(createProjectTable);
+            stmt.execute(createSessionsTable);
 
         } catch (SQLException e) {
             System.err.println("Error initializing database: " + e.getMessage());
